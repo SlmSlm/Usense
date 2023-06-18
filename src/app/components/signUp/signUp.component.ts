@@ -21,7 +21,7 @@ export class SignUpComponent {
   }
 
   passwordStrengthHandler(value: string) {
-    let letters = value.match(/[A-z]/g);
+    let letters = value.match(/[A-z]/g) || value.match(/[А-я]/g);
     let numbers = value.match(/[0-9]/g);
     let symbols = value.match(/(.*[!,@,#,$,%,^,&,*,?,_,~, <, >])/);
 
