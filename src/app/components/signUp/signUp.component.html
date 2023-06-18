@@ -81,8 +81,8 @@
             <div
               class="line-3 h-2 w-[calc(33.33%_-_5px)] bg-gray-200"
               [ngClass]="{
-                'bg-gray-200': (!low && !medium && !high) || low,
-                'bg-red-200': passwordLength || medium,
+                'bg-gray-200': (!low && !medium && !high) || low || medium,
+                'bg-red-200': passwordLength,
                 'bg-green-200': high
               }"
             ></div>

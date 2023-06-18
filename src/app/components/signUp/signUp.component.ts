@@ -29,6 +29,10 @@ export class SignUpComponent {
       this.passwordLength = true;
     }
 
+    if (value.length > 8) {
+      this.passwordLength = false;
+    }
+
     if (value.length === 0) {
       this.low = false;
       this.medium = false;
@@ -78,9 +82,9 @@ export class SignUpComponent {
 
     //high
     if (letters && numbers && symbols && value.length > 8) {
+      this.high = true;
       this.medium = false;
       this.low = false;
-      this.high = true;
     }
     //high
   }
