@@ -17,7 +17,7 @@ export class SignUpComponent {
   @ViewChild("testForm") someNewNameFrom: NgForm | null = null;
 
   onSubmit() {
-    prompt("Congr, u are the best")
+    prompt("Congr, u are the best");
   }
 
   passwordStrengthHandler(value: string) {
@@ -27,9 +27,11 @@ export class SignUpComponent {
 
     if (value.length < 8) {
       this.passwordLength = true;
-    } else{
+      this.low = true;
+      this.medium = false
+      this.high = false
+    } else {
       this.passwordLength = false;
-
     }
 
     if (value.length === 0) {
@@ -40,19 +42,19 @@ export class SignUpComponent {
     }
 
     //easy
-    if (letters && !numbers && !symbols) {
+    if (letters && !numbers && !symbols && value.length < 8) {
       this.low = true;
       this.medium = false;
       this.high = false;
     }
 
-    if (numbers && !letters && !symbols) {
+    if (numbers && !letters && !symbols && value.length < 8) {
       this.low = true;
       this.medium = false;
       this.high = false;
     }
 
-    if (symbols && !numbers && !letters) {
+    if (symbols && !numbers && !letters && value.length < 8) {
       this.low = true;
       this.medium = false;
       this.high = false;
