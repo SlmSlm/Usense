@@ -23,14 +23,13 @@ export class SignUpComponent {
   passwordStrengthHandler(value: string) {
     let letters = value.match(/[A-z]/g);
     let numbers = value.match(/[0-9]/g);
-    let symbols = value.match(/(.*[!,@,#,$,%,^,&,*,?,_,~])/);
+    let symbols = value.match(/(.*[!,@,#,$,%,^,&,*,?,_,~, <, >])/);
 
     if (value.length < 8) {
       this.passwordLength = true;
-    }
-
-    if (value.length > 8) {
+    } else{
       this.passwordLength = false;
+
     }
 
     if (value.length === 0) {
