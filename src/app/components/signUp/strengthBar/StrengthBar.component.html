@@ -1,0 +1,34 @@
+<div class="strength-checker flex items-center justify-between mt-2">
+  <div
+    class="line-1 h-2 w-[calc(33.33%_-_5px)] bg-gray-200"
+    [ngClass]="{
+      'bg-gray-200': !low && !medium && !high,
+      'bg-red-200': passwordLength || low,
+      'bg-yellow-200': medium,
+      'bg-green-200': high
+    }"
+  ></div>
+  <div
+    class="line-2 h-2 w-[calc(33.33%_-_5px)] bg-gray-200"
+    [ngClass]="{
+      'bg-gray-200': (!low && !medium && !high) || low,
+      'bg-red-200': passwordLength,
+      'bg-yellow-200': medium,
+      'bg-green-200': high
+    }"
+  ></div>
+  <div
+    class="line-3 h-2 w-[calc(33.33%_-_5px)] bg-gray-200"
+    [ngClass]="{
+      'bg-gray-200': (!low && !medium && !high) || low || medium,
+      'bg-red-200': passwordLength,
+      'bg-green-200': high
+    }"
+  ></div>
+</div>
+<div class="mt-2">
+  {{ passwordLength ? "Password must contain at least 8 characters" : "" }}
+  {{ low && !passwordLength ? "Password is not secure!" : "" }}
+  {{ medium ? "Medium strength password" : "" }}
+  {{ high ? "Password strong!" : "" }}
+</div>
