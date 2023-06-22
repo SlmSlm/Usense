@@ -1,11 +1,11 @@
 import { NgModule } from "@angular/core";
-import { FormsModule } from "@angular/forms";
+import { ReactiveFormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
 
 import { AppComponent } from "./app.component";
+import { CustomInputComponent } from "./components/customInput/CustomInput";
 import { SignUpComponent } from "./components/signUp/SignUp.component";
 import { StrengthBarComponent } from "./components/strengthBar/StrengthBar.component";
-import { CustomInputComponent } from "./components/customInput/CustomInput";
 
 @NgModule({
   declarations: [
@@ -14,7 +14,7 @@ import { CustomInputComponent } from "./components/customInput/CustomInput";
     StrengthBarComponent,
     CustomInputComponent,
   ],
-  imports: [BrowserModule, FormsModule],
+  imports: [BrowserModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

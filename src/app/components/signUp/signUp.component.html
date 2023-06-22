@@ -19,34 +19,48 @@
         action="#"
         method="POST"
         (ngSubmit)="onSubmit()"
-        #testForm="ngForm"
+        [formGroup]="form"
       >
+        <!-- #testForm="ngForm" -->
         <app-customInput
           [label]="'Email address'"
           [inputSet]="'email'"
           [required]="true"
         />
 
-        <app-customInput
+        <!-- <app-customInput
           [label]="'Password'"
           [inputSet]="'password'"
           [required]="true"
-        />
-        <!-- [(ngModel)]="password" -->
-        <!-- (ngModelChange)="passwordStrengthHandler(password)" -->
+        /> -->
+        <div>
+          <label
+            for="password"
+            class="block text-sm font-medium leading-6 text-gray-900"
+            >Password</label
+          >
 
-        <app-strengthBar
-          [passwordLength]="passwordLength"
-          [low]="low"
-          [medium]="medium"
-          [high]="high"
-        />
+          <div class="mt-2">
+            <input
+              id="password"
+              name="password"
+              type="text"
+              autocomplete="current-password"
+              required
+              formControlName="password"
+              class="block px-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+            />
+          </div>
+        </div>
+
+        <app-strength-bar
+          [typeOfStrength]="typeOfStrength | async"
+        ></app-strength-bar>
 
         <div>
           <button
             type="submit"
-            ng-model="button"
-            [disabled]="password.length < 8"
+            [disabled]="!form.valid"
             class="disabled:opacity-50 flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           >
             Sign up
