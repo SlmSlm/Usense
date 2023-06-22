@@ -1,7 +1,7 @@
 export enum TypeOfPasswordStrengthEnum {
-    INVALID = 'invalid',
-    LOW = 'low',
-    MEDUIUM = 'medium',
-    STRONG = 'strong',
-    DEFAULT = 'default'
+  INVALID = "invalid",
+  LOW = "low",
+  MEDIUM = "medium",
+  STRONG = "strong",
+  DEFAULT = "default",
 }

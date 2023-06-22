@@ -1,18 +1,6 @@
-// import { Component, Input } from "@angular/core";
-
-// @Component({
-//   selector: "app-strengthBar",
-//   templateUrl: "./StrengthBar.component.html",
-// })
-// export class StrengthBarComponent {
-//   @Input() passwordLength: boolean;
-//   @Input() low: boolean;
-//   @Input() medium: boolean;
-//   @Input() high: boolean;
-// }
-
 import { Component, Input, OnChanges } from "@angular/core";
 import { TypeOfPasswordStrengthEnum } from "../../enums/type-of-password-strength.enum";
+import { CommonModule } from "@angular/common";
 
 type Styles = {
   invalid: string[];
@@ -25,6 +13,8 @@ type Styles = {
 @Component({
   selector: "app-strength-bar",
   templateUrl: "./strengthBar.component.html",
+  standalone: true,
+  imports: [CommonModule],
 })
 export class StrengthBarComponent implements OnChanges {
   @Input() typeOfStrength: TypeOfPasswordStrengthEnum | null =
